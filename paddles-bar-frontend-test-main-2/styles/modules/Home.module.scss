@@ -1,0 +1,69 @@
+@import "../global/parts";
+
+._ {
+  .faqs__section {
+    padding: 0 10%;
+    @include _minWidthXSmall {
+      padding: 0 8%;
+    }
+    @include _minWidthMobile {
+      padding: 60px 5%;
+      margin: 0 auto;
+    }
+  }
+
+  .faqs__section {
+    background-color: $light_blue;
+    .container {
+      max-width: 1140px;
+      position: relative;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      padding: 0 5%;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      @include _title_font;
+      color: $deep_blue;
+    }
+    h2 {
+      font-size: 1.25rem;
+      @include _base_font_bol;
+      color: $teal_blue;
+    }
+    h3 {
+      font-size: 1rem;
+      padding: 5px 0;
+      @include _base_font_bol;
+      color: $base_color;
+    }
+    p {
+      line-height: 1.5rem;
+    }
+  }
+
+  .faqs__section {
+    ol li {
+      padding: 10px 0 !important;
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+    ol {
+      list-style: upper-roman;
+      color: $teal_blue;
+      padding: 0;
+      margin: 0;
+    }
+    .question {
+      font-size: 1.25rem;
+      color: $teal_blue;
+    }
+    .answer {
+      color: $base_color;
+      font-size: 1rem;
+      font-weight: normal;
+    }
+  }
+}

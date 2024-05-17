@@ -1,0 +1,48 @@
+@import "../global/parts";
+
+.reserve__badge {
+  position: absolute;
+  right: 0;
+  top: 30px;
+  z-index: 1;
+  a {
+    position: relative;
+    display: inline-block;
+  }
+  svg {
+    fill: $accent;
+    width: 94px;
+    @include _minWidthMobile {
+      width: 124px;
+    }
+    animation: none;
+    &:hover {
+      animation: rotation 20s infinite linear;
+    }
+  }
+  span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    text-transform: uppercase;
+    color: $white;
+    font-family: $NeueHaasMedium;
+    padding: 20px;
+    font-size: 0.725rem;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    @include _minWidthMobile {
+      font-size: 0.875rem;
+    }
+  }
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}

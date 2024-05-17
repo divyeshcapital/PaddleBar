@@ -1,0 +1,27 @@
+@import "../global/parts";
+
+  .marquee {
+    position: fixed;
+    width: 100%;
+    background: linear-gradient(66deg, $marquee-start, $marquee-end);
+    max-height: 30px;
+    padding: 5px 0;
+
+    div {
+      padding: 0 3vw;
+      font-size: 0.675rem;
+      font-weight: bold;
+    }
+  }
+ 
+  .marquee_item {
+    display: flex;
+    span {
+      margin: 0 20px;
+    }
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }

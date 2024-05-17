@@ -1,0 +1,123 @@
+@import '../global/parts';
+
+.hours {
+  background: $teal_blue;
+  position: relative;
+  color: $white;
+  padding: 60px 5% 50px;
+  @include _minWidthMobile {
+    padding: 70px 5%;
+  }
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+  .row {
+    display: flex;
+    flex-direction: column;
+    @include _minWidthMobile {
+      flex-direction: row;
+    }
+  }
+  .title__container,
+  .hours__container {
+    padding: 40px 5%;
+    width: 100%;
+    text-align: center;
+    @include _minWidthMobile {
+      width: 50%;
+      text-align: left;
+      padding-top: 130px;
+    }
+  }
+  .hour-title {
+    padding-right: 5px;
+  }
+  .hour-time {
+    padding-left: 5px;
+  }
+  .hours__list {
+    list-style: none;
+    margin-top: 20px;
+    padding-left: 0;
+    @include _minWidthMobile {
+      padding-left: 40px;
+    }
+    @include _minWidthTablet {
+      padding-left: 100px;
+    }
+  }
+  .circle {
+    position: absolute !important;
+    opacity: 0.8;
+    top: 480px;
+    left: 50%;
+    width: 100vw;
+    height: 46vw;
+    transform: translateX(-50%);
+    max-height: 180px;
+    max-width: 390px;
+    @include _minWidthSmall {
+      top: 440px;
+    }
+    @include _minWidthMobile {
+      top: 250px;
+      left: 56%;
+      transform: translateX(-20%);
+    }
+    @include _minWidthTablet {
+      left: 60%;
+    }
+    @include _minWidthLarge {
+      top: 235px;
+      left: 58%;
+    }
+  }
+  .arrow {
+    position: absolute !important;
+    stroke: $accent;
+    opacity: 0.8;
+    top: 300px;
+    left: 25%;
+    width: 85px;
+    height: 127px;
+    transform: translateX(-50%) rotate(10deg);
+    @include _minWidthMobile {
+      top: 115px;
+      left: 52%;
+      transform: translateX(-20%) rotate(0deg);
+    }
+  }
+  .main__title {
+    @include _title_font;
+    font-size: 2.5rem;
+    @include _minWidthMobile {
+      margin-top: 20px;
+      font-size: 3em;
+    }
+    @include _minWidthTablet {
+      margin-top: 20px;
+      font-size: 3.375rem;
+    }
+  }
+  .text {
+    @include _base_font_bol;
+    margin-bottom: 10px;
+  }
+  .hours__list li:first-child {
+    margin-bottom: 40px;
+    @include _base_font;
+  }
+  .animatedCircle {
+    stroke-dasharray: 1080;
+    stroke-dashoffset: 1080;
+    animation: dash 5s linear;
+    animation-delay: 1.1s;
+  }
+
+  @keyframes dash {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+}

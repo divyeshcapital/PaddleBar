@@ -1,0 +1,228 @@
+@import './variables';
+
+/* === BREAKPOINTS ==== */
+@mixin _minWidthXXSmall {
+  @media (min-width: $xxsmall) {
+    @content;
+  }
+}
+
+@mixin _minWidthXSmall {
+  @media (min-width: $xsmall) {
+    @content;
+  }
+}
+
+@mixin _minWidthSmall {
+  @media (min-width: $small) {
+    @content;
+  }
+}
+
+@mixin _minWidthMobile {
+  @media (min-width: $mobile) {
+    @content;
+  }
+}
+
+@mixin _minWidthTablet {
+  @media (min-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin _minWidthMedium {
+  @media (min-width: $medium) {
+    @content;
+  }
+}
+
+@mixin _minWidthLarge {
+  @media (min-width: $large) {
+    @content;
+  }
+}
+
+@mixin _minWidthXLarge {
+  @media (min-width: $xlarge) {
+    @content;
+  }
+}
+
+@mixin _maxWidth($max) {
+  @media (max-width: $max) {
+    @content;
+  }
+}
+
+@mixin _minWidth($min) {
+  @media (min-width: $min) {
+    @content;
+  }
+}
+
+@mixin _maxHeight($max) {
+  @media (max-height: $max) {
+    @content;
+  }
+}
+
+@mixin _minHeight($min) {
+  @media (min-height: $min) {
+    @content;
+  }
+}
+
+@mixin _betweenWidth($min, $max) {
+  @media (min-width: $min) and (max-width: $max) {
+    @content;
+  }
+}
+
+@mixin _widerMedia {
+  @media (min-width: $siteMaxWidth) {
+    @content;
+  }
+}
+
+@mixin _widerThan($w) {
+  @media (min-width: #{$w}) {
+    @content;
+  }
+}
+
+@mixin _tallerThan($h) {
+  @media (min-height: #{$h}) {
+    @content;
+  }
+}
+
+/* === FONT SIZING ==== */
+@function calculateRem($size) {
+  $remSize: $size / $rootFontSize;
+  @return #{$remSize}rem;
+}
+
+@mixin _fontSize($size, $lineHeight) {
+  font-size: calculateRem($size);
+  line-height: calculateRem($lineHeight);
+}
+
+/* === OTHER MIXINS ==== */
+@function _toVW($unit) {
+  @return ($unit / 1600) * 100vw;
+}
+
+@mixin _hoverAnimation {
+  transition: opacity 250ms ease-in-out;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+@mixin _container($maxWidth: 1600px) {
+  padding-left: 20px;
+  padding-right: 20px;
+  max-width: $maxWidth;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include _minWidthXSmall {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  @include _minWidthTablet {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  @include _minWidthLarge {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  @content;
+}
+
+@mixin _verticalPadding($top: 0px, $bottom: 0px) {
+  padding-top: $top;
+  padding-bottom: $bottom;
+}
+
+@mixin _verticalMargin($top: 0px, $bottom: 0px) {
+  margin-top: $top;
+  margin-bottom: $bottom;
+}
+
+/* === CROSS BROWSER === */
+@mixin _IEOnly {
+  @media all and (-ms-high-contrast: none) {
+    @content;
+  }
+}
+
+@mixin _EdgeOnly {
+  @supports (-ms-ime-align: auto) {
+    @content;
+  }
+}
+
+/* === ACCESSIBILITY === */
+@mixin _accessible {
+  html[class*='accessible'] {
+    @content;
+  }
+}
+
+@mixin _notAccessible {
+  html:not([class*='accessible']) {
+    @content;
+  }
+}
+////fonts
+@mixin _script_font {
+  font-family: 'Luminaire Script';
+  font-weight: normal;
+  font-style: normal;
+}
+@mixin _title_font {
+  font-family: 'Bullshorn WF';
+  font-weight: normal;
+  font-style: normal;
+}
+@mixin _base_font {
+  font-family: 'NeueHaasGroteskDisp Pro';
+  font-weight: normal;
+  font-style: normal;
+}
+@mixin _base_font_md {
+  font-family: 'NeueHaasGroteskDisp Pro Md';
+  font-weight: 500;
+  font-style: normal;
+}
+@mixin _base_font_bol {
+  font-family: 'NeueHaasGroteskDisp Pro';
+  font-weight: bold;
+  font-style: normal;
+}
+///header height
+@mixin _header_height {
+  height: 60px;
+  @include _minWidthMobile() {
+    height: 70px;
+  }
+  @include _minWidthTablet() {
+    height: 90px;
+  }
+}
+@mixin _header_height_marquee {
+  height: 82px;
+  @include _minWidthMobile() {
+    height: 92px;
+  }
+  @include _minWidthTablet() {
+    height: 112px;
+  }
+}

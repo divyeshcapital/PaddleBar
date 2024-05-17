@@ -1,0 +1,17 @@
+@import "../global/parts";
+._ {
+  background-color: $deep_blue;
+  color: $white;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 4%;
+
+  .logo {
+    max-width: 70px;
+  }
+
+  .nav_container {
+    display: flex;
+    padding: 0 5rem;
+  }
+}
